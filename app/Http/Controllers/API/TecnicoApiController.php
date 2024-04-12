@@ -189,10 +189,10 @@ class TecnicoApiController extends Controller
     }
 
     public function terminarServicio($id){
-        $servicio = Servcio::find($id);
-        $agentamiento->estado = "Ejecutado";
-        $agentamiento->update();
-        return response()->json("Agendamiento terminado");
+        $servicio = Servicio::find($id);
+        $servicio->estado = "Ejecutado";
+        $servicio->update();
+        return response()->json("Servicio terminado");
     }
 
     public function verCalificacion(){

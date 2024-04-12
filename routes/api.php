@@ -50,6 +50,7 @@ Route::group([
 
         Route::get('agenda/ejecutar/{id}', [TecnicoApiController::class, 'terminarAgendamiento']);
 
+        Route::get('servicio/ejecutar/{id}', [TecnicoApiController::class, 'terminarServicio']);
 
         Route::get('/agendamiento-ver/{id}', [AgendamientoApiController::class, 'getByServicioId']);
     

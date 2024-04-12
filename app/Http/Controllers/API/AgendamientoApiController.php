@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Agendamiento;
 use App\Models\User;
 use Illuminate\Support\Facades\DB;
+use App\Models\Evaluacion;
 use App\Models\Servicio;
 
 
@@ -107,7 +108,20 @@ class AgendamientoApiController extends Controller
         $servicio = Servicio::find($id);
         $agendamientos = $servicio->agendamiento;
 
+
         $data = array();
+
+
+        foreach ($agendamientos as $ag) {
+            if (Evaluacion::where("agendamientos_id", $ag->id)->exists()) {
+                $ag->calificado = true;
+            }else{
+                $ag->calificado = false;
+            }
+            array_push($data, $ag);
+        }
+
+
         return response()->json($agendamientos);
         /*foreach ($agendamientos as $ag) {
             $query = DB::table("agendamientos")

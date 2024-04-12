@@ -18,6 +18,7 @@ class Servicios extends Migration
             $table->string('direccion');
             $table->date('fecha');
             $table->time('hora');
+            $table->string('estado');
             $table->foreignId('tipos_id');
             $table->foreign('tipos_id')->references('id')->on('tipos');
             $table->foreignId('ciudades_id');

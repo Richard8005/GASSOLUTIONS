@@ -12,6 +12,7 @@ class Servicio extends Model
         "fecha",
         "direccion",
         "hora",
+        'estado',
         "tipos_id",
         "ciudades_id",
         "tecnicos_id",

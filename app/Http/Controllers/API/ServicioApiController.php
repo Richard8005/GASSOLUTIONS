@@ -65,6 +65,7 @@ class ServicioApiController extends Controller
         $servicio->cliente_id=  $cliente_id;
         $tecnico_id = User::find($request->tecnicos_id)->tecnico->id;
         $servicio->tecnicos_id = $tecnico_id;
+        $servicio->estado = "Pendiente";
         $servicio->save();
         $data = [
             'mensaje' => 'servicio creado correctamente',
